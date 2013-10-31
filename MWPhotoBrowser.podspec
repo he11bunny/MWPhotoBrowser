@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'MWPhotoBrowser'
-  s.version  = '1.2.0'
+  s.version  = '1.2.1'
   s.license  = 'MIT'
   s.summary  = 'A simple iOS photo browser.'
   s.homepage = 'https://github.com/he11bunny/MWPhotoBrowser'
   s.author   = { 'He11bunny' => 'he118ny@gmail.com' }
-  s.source   = { :git => 'https://github.com/he11bunny/MWPhotoBrowser.git', :tag => '1.2.0' }
+  s.source   = { :git => 'https://github.com/he11bunny/MWPhotoBrowser.git', :tag => '1.2.1' }
   s.platform = :ios, '5.0'
   
   s.subspec 'ARC' do |arc|
