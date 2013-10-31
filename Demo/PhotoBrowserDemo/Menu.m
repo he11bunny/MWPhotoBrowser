@@ -150,6 +150,8 @@
     browser.wantsFullScreenLayout = YES;
     browser.zoomPhotosToFill = YES;
     [browser setCurrentPhotoIndex:0];
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithTitle:@"shishi" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [browser setActionButton:actionButton];
     
     // Show
     if (_segmentedControl.selectedSegmentIndex == 0) {

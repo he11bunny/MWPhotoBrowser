@@ -264,7 +264,7 @@
         _previousButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:arrowPathFormat, @"Left"]] style:UIBarButtonItemStylePlain target:self action:@selector(gotoPreviousPage)];
         _nextButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:arrowPathFormat, @"Right"]] style:UIBarButtonItemStylePlain target:self action:@selector(gotoNextPage)];
     }
-    if (self.displayActionButton) {
+    if (self.displayActionButton && !_actionButton) {
         _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
     }
     
@@ -468,6 +468,20 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _viewIsActive = YES;
+}
+
+-(void)setActionButton:(UIBarButtonItem *) actionButton
+{
+    _actionButton = actionButton;
+    if ([actionButton.customView isKindOfClass:[UIButton class]]) {
+        UIButton *button = (UIButton*)actionButton.customView;
+        [button addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    else
+    {
+        [_actionButton setTarget:self];
+        [_actionButton setAction:@selector(actionButtonPressed:)];
+    }
 }
 
 #pragma mark - Nav Bar Appearance

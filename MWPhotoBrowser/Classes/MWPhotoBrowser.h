@@ -60,4 +60,6 @@
 - (void)showNextPhotoAnimated:(BOOL)animated;
 - (void)showPreviousPhotoAnimated:(BOOL)animated;
 
+// custom view
+-(void)setActionButton:(UIBarButtonItem *) actionButton;
 @end
